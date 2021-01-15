@@ -32,7 +32,7 @@ public class adminController {
         paraMap.put("username",username);
         paraMap.put("password",password);
         List adminList = adminService.login(paraMap);
-        if (adminList != null){
+        if (adminList.size() != 0){
             resultMap.put(Const.CODE,1000);
             resultMap.put(Const.MSG,"登录成功！");
             session.setAttribute("username",username);

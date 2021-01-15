@@ -26,7 +26,7 @@ public class adminController {
         HashMap paraMap = new HashMap();
         HashMap resultMap = new HashMap();
         resultMap.put(Const.CODE,-1000);
-        resultMap.put(Const.MSG,"用户名或密码错误！");
+        resultMap.put(Const.MSG,"用户名或密码错误！");//GitHub验证
         String username = httpServletRequest.getParameter("username");
         String password = httpServletRequest.getParameter("password");
         paraMap.put("username",username);

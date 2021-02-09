@@ -8,7 +8,7 @@ public class singer implements Serializable {
     private String name;
     private Byte sex;
     private String picture;
-    private Date birth;
+    private String birth;
     private String location;
     private String introduction;
 
@@ -44,11 +44,11 @@ public class singer implements Serializable {
         this.picture = picture;
     }
 
-    public Date getBirth() {
+    public String getBirth() {
         return birth;
     }
 
-    public void setBirth(Date birth) {
+    public void setBirth(String birth) {
         this.birth = birth;
     }
 

@@ -6,6 +6,7 @@ import com.my.music.service.SingerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -19,5 +20,20 @@ public class SingerServiceImpl implements SingerService {
         }
         singer.setPicture("/img/singerPic/default.jpg");
         return singerMapper.addSinger(singer);
+    }
+
+    @Override
+    public List<singer> querySingers(singer singer) {
+        return singerMapper.querySingers(singer);
+    }
+
+    @Override
+    public int updateSinger(singer singer) {
+        return singerMapper.updateSinger(singer);
+    }
+
+    @Override
+    public int deleteSinger(singer singer) {
+        return singerMapper.deleteSinger(singer);
     }
 }

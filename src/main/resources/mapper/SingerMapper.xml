@@ -16,4 +16,38 @@
         insert into singer (pid,name,sex,picture,birth,location,introduction) values (#{pid},#{name},#{sex},#{picture},#{birth},#{location},#{introduction})
     </insert>
 
+    <select id="querySingers" parameterType="com.my.music.domain.singer" resultType="com.my.music.domain.singer">
+        select * from singer where 1=1
+        <if test="pid != null and pid != ''">
+            and pid = #{pid}
+        </if>
+        <if test="name != null and name != ''">
+            and name = #{name}
+        </if>
+        <if test="sex != null and sex != ''">
+            and sex = #{sex}
+        </if>
+        <if test="picture != null and picture != ''">
+            and picture = #{picture}
+        </if>
+        <if test="birth != null and birth != ''">
+            and birth = #{birth}
+        </if>
+        <if test="location != null and location != ''">
+            and location = #{location}
+        </if>
+        <if test="introduction != null and introduction != ''">
+            and introduction = #{introduction}
+        </if>
+    </select>
+
+    <update id="updateSinger" parameterType="com.my.music.domain.singer">
+        update singer set name = #{name},sex = #{sex},picture = #{picture},birth = #{birth},location=#{location},introduction=#{introduction}
+        where pid = #{pid}
+    </update>
+
+    <delete id="deleteSinger" parameterType="com.my.music.domain.singer">
+        delete from singer where pid = #{pid}
+    </delete>
+
 </mapper>

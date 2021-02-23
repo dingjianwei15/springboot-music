@@ -1,5 +1,6 @@
 package com.my.music.controller;
 
+import com.alibaba.fastjson.JSONArray;
 import com.my.music.domain.singer;
 import com.my.music.service.SingerService;
 import com.my.music.untils.Const;
@@ -108,11 +109,14 @@ public class singerController {
 
     @ResponseBody
     @RequestMapping(value = "/deleteSinger",method = RequestMethod.POST)
-    public Map deleteSinger(singer singer){
+    public Map deleteSinger(@RequestParam("singerList") String singerList){
+        List<singer> singerLists= (List<singer>) JSONArray.parseArray( singerList, singer.class);
         Map resultMap = new HashMap();
         resultMap.put(Const.CODE,-1000);
         resultMap.put(Const.MSG,"error");
-        if (singerService.deleteSinger(singer) > 0){
+        singer singer = new singer();
+        //singer.setPid(pid);
+        if (singerService.deleteSinger(singerLists) > 0){
             resultMap.put(Const.CODE,1000);
             resultMap.put(Const.MSG,"success");
         }

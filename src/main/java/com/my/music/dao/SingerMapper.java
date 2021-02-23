@@ -13,5 +13,5 @@ public interface SingerMapper {
 
     int updateSinger(singer singer);
 
-    int deleteSinger(singer singer);
+    int deleteSinger(List<singer> singerLists);
 }

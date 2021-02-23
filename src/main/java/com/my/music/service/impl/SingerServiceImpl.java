@@ -33,7 +33,7 @@ public class SingerServiceImpl implements SingerService {
     }
 
     @Override
-    public int deleteSinger(singer singer) {
-        return singerMapper.deleteSinger(singer);
+    public int deleteSinger(List<singer> singerLists) {
+        return singerMapper.deleteSinger(singerLists);
     }
 }

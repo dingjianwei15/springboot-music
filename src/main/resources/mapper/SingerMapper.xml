@@ -46,8 +46,11 @@
         where pid = #{pid}
     </update>
 
-    <delete id="deleteSinger" parameterType="com.my.music.domain.singer">
-        delete from singer where pid = #{pid}
+    <delete id="deleteSinger" parameterType="java.util.List">
+        delete from singer where pid in
+        <foreach collection="singerLists" item="item" index="index" open="(" separator="," close=")">
+            #{item.pid}
+        </foreach>
     </delete>
 
 </mapper>
